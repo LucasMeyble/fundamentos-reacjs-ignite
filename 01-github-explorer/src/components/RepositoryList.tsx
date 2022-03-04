@@ -3,9 +3,14 @@ import { RepositoryItem } from "./RepositoryItem";
 
 import '../style/repositories.scss';
 
-export function RepositoryList() {
+interface Repository {
+  name: string;
+  description: string;
+  html_url: string;
+}
 
-  const [repositories, setRepositories] = useState([]);
+export function RepositoryList() {
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
   // toda vez q repositories mudar execute a função
   useEffect(() => {
